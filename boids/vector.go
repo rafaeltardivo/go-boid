@@ -1,5 +1,7 @@
 package boids
 
+import "math"
+
 // Vector (two dimentional definition).
 type Vector struct {
 	X float64
@@ -55,10 +57,19 @@ func (v Vector) MultiplyValue(value float64) Vector {
 }
 
 // DivideValue divides the specified value by v.X and v.Y.
-// TODO check for division by 0 error.
 func (v Vector) DivideValue(value float64) Vector {
+
+	// TODO check for division by 0 error.
 	return Vector{
 		X: v.X / value,
 		Y: v.Y / value,
+	}
+}
+
+// Limit limits upper and lower boundaries for v.X and v.Y.
+func (v Vector) Limit(lower, upper float64) Vector {
+	return Vector{
+		X: math.Min(math.Max(v.X, lower), upper),
+		Y: math.Min(math.Max(v.Y, lower), upper),
 	}
 }
