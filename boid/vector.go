@@ -1,4 +1,4 @@
-package boids
+package boid
 
 import "math"
 
@@ -76,5 +76,5 @@ func (v Vector) Limit(lower, upper float64) Vector {
 
 // Distance calculates the distance between v and the target vector.
 func (v Vector) Distance(target Vector) float64 {
-	return math.Sqrt(math.Pow(v.X-target.X, 2) + math.Pow(v.y-target.Y, 2))
+	return math.Sqrt(math.Pow(v.X-target.X, 2) + math.Pow(v.Y-target.Y, 2))
 }
