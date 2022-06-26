@@ -13,3 +13,11 @@ func (v Vector) Add(operand Vector) Vector {
 		Y: v.Y + operand.Y,
 	}
 }
+
+// Sub subtracts v (X, Y) from operand (X, Y).
+func (v Vector) Subtract(operand Vector) Vector {
+	return Vector{
+		X: v.X - operand.X,
+		Y: v.Y - operand.Y,
+	}
+}
