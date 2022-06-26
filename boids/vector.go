@@ -73,3 +73,8 @@ func (v Vector) Limit(lower, upper float64) Vector {
 		Y: math.Min(math.Max(v.Y, lower), upper),
 	}
 }
+
+// Distance calculates the distance between v and the target vector.
+func (v Vector) Distance(target Vector) float64 {
+	return math.Sqrt(math.Pow(v.X-target.X, 2) + math.Pow(v.y-target.Y, 2))
+}
