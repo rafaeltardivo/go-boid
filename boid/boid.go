@@ -17,22 +17,23 @@ type Boid struct {
 }
 
 func (b *Boid) moveOne() {
-	b.Position = b.Position.Add(b.Velocity)
-	next := b.Position.Add(b.Velocity)
+	newPosition := b.Position.Add(b.Velocity)
 
-	if next.X >= screenWidth || next.X < 0 {
+	if newPosition.X >= screenWidth || newPosition.X < 0 {
 		b.Velocity = Vector{
 			X: -b.Velocity.X,
 			Y: b.Velocity.Y,
 		}
 	}
 
-	if next.Y >= screenHeight || next.Y < 0 {
+	if newPosition.Y >= screenHeight || newPosition.Y < 0 {
 		b.Velocity = Vector{
 			X: b.Velocity.X,
 			Y: -b.Velocity.Y,
 		}
 	}
+
+	b.Position = newPosition
 }
 
 func (b *Boid) Start() {
