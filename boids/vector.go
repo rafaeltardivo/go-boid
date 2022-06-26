@@ -29,3 +29,36 @@ func (v Vector) Multiply(operand Vector) Vector {
 		Y: v.Y * operand.Y,
 	}
 }
+
+// AddValue adds the specified value to v.X and v.Y.
+func (v Vector) AddValue(value float64) Vector {
+	return Vector{
+		X: v.X + value,
+		Y: v.Y + value,
+	}
+}
+
+// SubtractValue subtracts the specified value from v.X and v.Y.
+func (v Vector) SubtractValue(value float64) Vector {
+	return Vector{
+		X: v.X - value,
+		Y: v.Y - value,
+	}
+}
+
+// MultiplyValue multiplies the specified value by v.X and v.Y.
+func (v Vector) MultiplyValue(value float64) Vector {
+	return Vector{
+		X: v.X * value,
+		Y: v.Y * value,
+	}
+}
+
+// DivideValue divides the specified value by v.X and v.Y.
+// TODO check for division by 0 error.
+func (v Vector) DivideValue(value float64) Vector {
+	return Vector{
+		X: v.X / value,
+		Y: v.Y / value,
+	}
+}
